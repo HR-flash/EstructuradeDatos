@@ -1,0 +1,77 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class lista {
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<String> tabla = new ArrayList<>();
+
+        while (true) {
+            System.out.println("\nLISTA");
+            System.out.println("1. Agregar un elemento");
+            System.out.println("2. Obtener un elemento por índice");
+            System.out.println("3. Borrar un elemento por índice");
+            System.out.println("4. Sustituir un elemento por índice");
+            System.out.println("5. Mostrar el contenido");
+            System.out.println("6. Cerrar");
+            System.out.println("Selecciona una opción: ");
+
+            int opciones = scanner.nextInt();
+            scanner.nextLine();
+
+            switch (opciones) {
+                case 1:
+                    System.out.print("Ingresa el elemento: ");
+                    String elemento = scanner.nextLine();
+                    tabla.add(elemento);
+                    break;
+                case 2:
+                    System.out.print("Ingresa el índice para obtener el elemento: ");
+                    int Obtener = scanner.nextInt();
+                    if (Obtener >= 0 && Obtener < tabla.size()) {
+                        String elementoObtenido = tabla.get(Obtener);
+                        System.out.println("Elemento en el índice " + Obtener + ": " + elementoObtenido);
+                    } else {
+                        System.out.println("No existe un elemnto en ese indice");
+                    }
+                    break;
+                case 3:
+                    System.out.print("Ingresa el índice para borrar el elemento: ");
+                    int borrar = scanner.nextInt();
+                    if (borrar >= 0 && borrar < tabla.size()) {
+                        String elementoBorrado = tabla.remove(borrar);
+                        System.out.println("El elemento en " + borrar + " (" + elementoBorrado + ") se borro");
+                    } else {
+                        System.out.println("No existe un elemnto en ese indice");
+                    }
+                    break;
+                case 4:
+                    System.out.print("Ingresa el índice para sustituir el elemento: ");
+                    int sustituir = scanner.nextInt();
+                    scanner.nextLine();
+                    if (sustituir >= 0 && sustituir < tabla.size()) {
+                        System.out.print("Ingresa el nuevo elemento: ");
+                        String nuevo = scanner.nextLine();
+                        tabla.set(sustituir, nuevo);
+                        System.out.println("El elemento en el índice " + sustituir + " se sustituyo.");
+                    } else {
+                        System.out.println("No existe un elemnto en ese indice");
+                    }
+                    break;
+                case 5:
+                    System.out.println("Lista completa:");
+                    for (int i = 0; i < tabla.size(); i++) {
+                        System.out.println( i + ": " + tabla.get(i));
+                    }
+                    break;
+                case 6:
+                    System.out.println("Adios");
+                    scanner.close();
+                    System.exit(0);
+                default:
+                    System.out.println("Selecciona una de las opciones disponibles");
+            }
+        }
+    }
+
+}
