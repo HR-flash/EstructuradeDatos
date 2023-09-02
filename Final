@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class lista {
+public class Final {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         ArrayList<String> tabla = new ArrayList<>();
@@ -12,7 +12,7 @@ public class lista {
             System.out.println("2. Obtener un elemento por índice");
             System.out.println("3. Borrar un elemento por índice");
             System.out.println("4. Sustituir un elemento por índice");
-            System.out.println("5. Mostrar el contenido");
+            System.out.println("5. Mostrar la lista completa");
             System.out.println("6. Cerrar");
             System.out.println("Selecciona una opción: ");
 
@@ -30,7 +30,7 @@ public class lista {
                     int Obtener = scanner.nextInt();
                     if (Obtener >= 0 && Obtener < tabla.size()) {
                         String elementoObtenido = tabla.get(Obtener);
-                        System.out.println("Elemento en el índice " + Obtener + ": " + elementoObtenido);
+                        System.out.println("Elemento en el índice " + Obtener + " es: " + elementoObtenido);
                     } else {
                         System.out.println("No existe un elemnto en ese indice");
                     }
@@ -73,5 +73,4 @@ public class lista {
             }
         }
     }
-
 }
