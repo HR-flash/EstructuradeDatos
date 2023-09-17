@@ -1,0 +1,35 @@
+public class Cola {
+    NodoCola inicio;
+    NodoCola fin;
+    int tamaño;
+    public Cola(){
+        inicio = fin = null;
+        tamaño = 0;
+    }
+    public boolean Vacia(){
+        return inicio == null;
+    }
+
+    public void insertar(int ele){
+        NodoCola nuevo = new NodoCola(ele);
+        if (Vacia()){
+            inicio = nuevo;
+        }else{
+            fin.siguiente = nuevo;
+        }
+        fin = nuevo;
+        tamaño++;
+    }
+    public int quitar(){
+        int aux = inicio.dato;
+        inicio = inicio.siguiente;
+        tamaño--;
+        return aux;
+    }
+    public int Inicio(){
+        return inicio.dato;
+    }
+    public int tamaCola(){
+        return tamaño;
+    }
+}
