@@ -1,0 +1,36 @@
+public class Pila {
+    private NodoPila primero;
+    int tamaño;
+    public Pila(){
+        primero = null;
+        tamaño = 0;
+    }
+
+    public boolean Vacia(){
+        return primero == null;
+    }
+    public void Push(int e){
+        NodoPila nuevo = new NodoPila(e);
+        nuevo.siguiente = primero;
+        primero = nuevo;
+        tamaño++;
+    }
+    public int Pop(){
+        int auxiliar = primero.dato;
+        primero = primero.siguiente;
+        tamaño--;
+        return auxiliar;
+    }
+    public int inicio(){
+        return primero.dato;
+    }
+    public int tamPila(){
+        return tamaño;
+    }
+    public void Vaciar(){
+        while(!Vacia()){
+            Pop();
+        }
+    }
+    
+}
