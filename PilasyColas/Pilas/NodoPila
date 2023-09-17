@@ -1,0 +1,9 @@
+public class NodoPila {
+    int dato;
+    NodoPila siguiente;
+
+    public NodoPila (int a) {
+        dato = a;
+        siguiente = null;
+    }
+}
