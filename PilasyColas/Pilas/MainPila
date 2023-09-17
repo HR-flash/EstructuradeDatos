@@ -1,0 +1,62 @@
+import javax.swing.*;
+
+public class MainPila {
+    public static void main(String[] args) {
+        int opcion = 0;
+        int elemento = 0;
+        Pila pila = new Pila();
+        do {
+            try {
+                opcion = Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "1.-Empujar un elemto de la Pila\n" + "2.-Sacar un elemento de la Pila\n" + "3.-¿La Pila esta vacia?\n" + "4.-¿Que elemento esta hasta arriba?\n" + "5.-Tamaño de la Pila\n" + "6.-Vaciar la Pila\n" + "7.-Salir\n" + "Ingresa una opcion:","MEnu de opciones", JOptionPane.INFORMATION_MESSAGE));
+                switch (opcion){
+                    case 1:
+                        elemento = Integer.parseInt(JOptionPane.showInputDialog(null, "Ingresa el elmento a empujar en la Pila","Aplicando Datos",JOptionPane.INFORMATION_MESSAGE));
+                        pila.Push(elemento);
+                        break;
+                    case 2:
+                        if (!pila.Vacia()){
+                            JOptionPane.showMessageDialog(null, "El elemento obtenido es "+ pila.Pop(),"Obteniendo datos de la pila",JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"La Pila esta vacia","Pila vacia", JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 3:
+                        if (pila.Vacia()){
+                            JOptionPane.showMessageDialog(null,"La pila esta vacia","Pila vacia", JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"LA pila no esta vacia","LA pila contiene datos",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 4:
+                        if (!pila.Vacia()){
+                            JOptionPane.showMessageDialog(null,"El elemento que se encuentra en la cima es "+pila.inicio(),"Cima de la pila",JOptionPane.INFORMATION_MESSAGE);
+                        }else {
+                            JOptionPane.showMessageDialog(null,"La pila esta vacia","Pila vacia",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 5:
+                        JOptionPane.showMessageDialog(null,"El tamaño de la pila es "+ pila.tamPila(),"Tamaño de la pila",JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 6:
+                        if (!pila.Vacia()){
+                            pila.Vaciar();
+                            JOptionPane.showMessageDialog(null,"La pila se ha vaciado" ,"Vaciando pila",JOptionPane.INFORMATION_MESSAGE);
+
+                        }else{
+                        JOptionPane.showMessageDialog(null,"La pila esta vacia","Pila vacia",JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    }
+                    case 7:
+                        JOptionPane.showMessageDialog(null,"Adios","Adios",JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null, "Opcion incorrecta","Error",JOptionPane.ERROR_MESSAGE);
+                }
+
+            }catch (NumberFormatException n){
+                JOptionPane.showMessageDialog(null,"Error"+ n.getMessage());
+            }
+        }while (opcion!=7);
+    }
+}
