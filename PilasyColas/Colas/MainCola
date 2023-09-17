@@ -1,0 +1,58 @@
+import javax.swing.*;
+
+public class MainCola {
+    public static void main(String[] args) {
+        int opcion = 0;
+        int elemento = 0;
+        Cola cola = new Cola();
+        do{
+            try {
+                opcion =Integer.parseInt(JOptionPane.showInputDialog(null,
+                        "1.-Insertar elemento\n" +"2.-Quitar un elemento\n" +"3.-¿La cola esta vacia?\n" +"4.-Elemento al inicio de la cola\n" +"5.-Tamaño\n" +"6.-Salir\n", JOptionPane.QUESTION_MESSAGE));
+                switch (opcion){
+                    case 1:
+                        elemento = Integer.parseInt(JOptionPane.showInputDialog(null,"Ingresa el elemento", "Insertar"
+                                ,JOptionPane.QUESTION_MESSAGE));
+                        cola.insertar(elemento);
+                        break;
+                    case 2:
+                        if (!cola.Vacia()){
+                            JOptionPane.showMessageDialog(null,"El elemento que se quito es " + cola.quitar(),"Quitar elemento",JOptionPane.INFORMATION_MESSAGE);
+                        }else{
+                            JOptionPane.showMessageDialog(null,"La cola esta vacia ","Cola vacia",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 3:
+                        if (cola.Vacia()){
+                            JOptionPane.showMessageDialog(null,"La cola esta vacia ","Cola vacia",JOptionPane.INFORMATION_MESSAGE);
+
+                        }else {
+                            JOptionPane.showMessageDialog(null,"La cola no esta vacia ","Cola no vacia",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 4:
+                        if (!cola.Vacia()){
+                            JOptionPane.showMessageDialog(null,"El elemento ubicado al inicio es "+ cola.Inicio(),"Elemento",JOptionPane.INFORMATION_MESSAGE);
+
+                        }else {
+                            JOptionPane.showMessageDialog(null,"La cola esta vacia ","Cola vacia",JOptionPane.INFORMATION_MESSAGE);
+                        }
+                        break;
+                    case 5:
+                        JOptionPane.showMessageDialog(null,"El tamaño es "+cola.tamaCola(),"Tamaño",JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    case 6:
+                        JOptionPane.showMessageDialog(null,"Adios ","Fin",JOptionPane.INFORMATION_MESSAGE);
+                        break;
+                    default:
+                        JOptionPane.showMessageDialog(null,"Opcion incorrecta","Error",JOptionPane.ERROR_MESSAGE);
+
+                }
+            }catch (NumberFormatException n){
+                JOptionPane.showMessageDialog(null,"Error "+n.getMessage());
+            }
+        }while (opcion!= 6);
+    }
+
+
+}
