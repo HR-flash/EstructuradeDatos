@@ -1,0 +1,26 @@
+public class Burbuja {
+
+    public static void main(String[] args) {
+        int[] numeros = {95, 36, 42, 0, 32, 58, 73, 28, 43, 12, 50};
+
+        burbuja(numeros);
+
+        System.out.println("Lista ordenada:");
+        for (int num : numeros) {
+            System.out.print(num + " ");
+        }
+    }
+
+    static void burbuja(int array[]) {
+        int n = array.length;
+        for (int i = 0; i < n - 1; i++) {
+            for (int j = 0; j < n - i - 1; j++) {
+                if (array[j] > array[j + 1]) {
+                    int temp = array[j];
+                    array[j] = array[j + 1];
+                    array[j + 1] = temp;
+                }
+            }
+        }
+    }
+}
