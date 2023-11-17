@@ -1,0 +1,38 @@
+public class Quicksort {
+
+    public static void main(String[] args) {
+        int[] numeros = {95, 36, 42, 0, 32, 58, 73, 28, 43, 12, 50};
+        quicksort(numeros, 0, numeros.length - 1);
+        System.out.println("Lista ya ordenada:");
+        for (int num : numeros) {
+            System.out.print(num + " ");
+        }
+    }
+
+    static void quicksort(int array[], int menor, int mayor) {
+        if (menor < mayor) {
+            int partir = partition(array, menor, mayor);
+
+            quicksort(array, menor, partir - 1);
+            quicksort(array, partir + 1, mayor);
+        }
+    }
+
+    static int partition(int arr[], int chico, int grande) {
+        int pivote = arr[grande];
+        int i = chico - 1;
+
+        for (int j = chico; j < grande; j++) {
+            if (arr[j] < pivote) {
+                i++;
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        int temp = arr[i + 1];
+        arr[i + 1] = arr[grande];
+        arr[grande] = temp;
+        return i + 1;
+    }
+}
