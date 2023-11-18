@@ -1,4 +1,4 @@
-public class Main {
+public class MainBurbuja {
     public static void main(String[] args) {
         MetodoBurbuja ordenar = new MetodoBurbuja();
         int[] vector = {95,36,42,0,32,58,73,28,43,12,50};
