@@ -4,6 +4,7 @@ public class Quicksort {
         i = primero;
         j = ultimo;
         pivote = array[(primero + ultimo)/2];
+        System.out.println("El pivote es "+ pivote);
         do {
             while (array[i] < pivote){
                 i++;
